@@ -1,0 +1,33 @@
+key,en_GB,fr_FR,de_DE,es_ES,pt_PT,zh_CN,ko_KR,vi_VN,ja_JP
+menu_options,Options,Options,Optionen,Opciones,Opções,選件,설정,Cài đặt,オプション
+menu_back,Back,Revenir,Rückkehr,Volver,Volte,回去,돌아가,Quay lại,戻る
+options_panel_title,Options Menu,Options Menu,Optionen Menü,Menú de Opciones,Menu Opções,選項菜單,설정 메뉴,Menu cài đặt,オプションメニュー
+menu_yes,Yes,Oui,Ja,Si,Sim,是,예,Đúng,はい
+menu_no,No,Non,Nein,No,Não,沒有,아니,Không,ノー
+menu_you_sure,Are you sure?,Êtes-vous sûr?,Bist du sicher?,Estas seguro?,Você tem certeza?,你確定嗎？,확실해?,Bạn có chắc không?,本気ですか？
+options_panel_language,Language,Langue,Sprache,Lenguaje,Língua,語言,언어,Ngôn ngữ,ランゲージ
+menu_play,Play,
+menu_quit,Quit,
+panel_resource_cost,Resource Cost,
+esc_to_restart,Press [ESC] to Restart,
+game_over_main_menu,Main Menu,
+game_over_title,Game Over,
+panel_get_villager,Get Villager,
+building_farm_name,Farm,
+building_farm_unit_title,Farmers,
+building_house_s_name,Small House,
+building_house_unit_title,Idle Villagers,
+panel_cost,Cost,
+building_house_s_description,A small house for villagers,
+building_farm_description,Produces food everyday,
+building_house_m_name,Medium House,
+building_house_m_description,A medium house for villagers,
+building_house_l_name,Large House,
+building_house_l_description,A large house for villagers,
+building_woodcutter_unit_title,Woodcutter,
+building_woodcutter_description,Produces wood everyday,
+building_woodcutter_name,Woodcutters,
+building_quarry_name,Quarry,
+building_quarry_unit_title,Miner,
+building_quarry_description,Produces stone everyday,
+panel_day,Day,
