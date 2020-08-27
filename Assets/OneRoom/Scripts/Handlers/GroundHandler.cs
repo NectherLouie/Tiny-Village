@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using Blocks;
+using UnityEngine.XR.WSA.Input;
 
 namespace OneRoom
 {
@@ -15,16 +17,38 @@ namespace OneRoom
 
         public void Load(Transform pParent)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
             transform.SetParent(pParent);
 
-            groundQuad.GetComponent<Renderer>().material = groundQuadMaterials[Random.Range(0, groundQuadMaterials.Count)];
+            groundQuad.SetActive(false);
+            
         }
 
-        public void PlayEnter(float duration, float delay)
+        public void PlayEnter(float pPosY, int pIndex)
         {
-            gameObject.SetActive(true);
-            groundQuad.transform.localScale = Vector3.one * 2f;
+            groundQuad.SetActive(true);
+            groundQuad.GetComponent<Renderer>().material = groundQuadMaterials[pIndex];
+
+            Vector3 pos = transform.position;
+            pos.y = pPosY;
+            transform.position = pos;
+        }
+
+        public void PlayExit(float duration, float delay)
+        {
+            groundQuad.SetActive(false);
+        }
+
+        private void OnMouseEnter()
+        {
+            Vector3 pos = groundQuad.transform.position;
+
+        }
+
+
+        private void OnMouseExit()
+        {
+
         }
 
         private void OnMouseDown()

@@ -71,23 +71,29 @@ namespace OneRoom
 
         private void PlayGridEnter()
         {
-            int col = 7;
-            int row = 7;
-            float offsetX = 2f;
-            float offsetZ = 2f;
+            GameObject terrain = Instantiate(gameObjectFactory.prefabTerrain);
+            List<GameObject> grounds = terrain.GetComponent<TerrainHandler>().GetGrounds();
 
-            for (int x = 0; x < col; ++x)
+            foreach (GameObject g in grounds)
             {
-                for (int y = 0; y < row; ++y)
-                {
-                    GameObject groundObject = gameObjectFactory.FetchGroundObject();
-                    Vector3 newPos = new Vector3(x * offsetX, 0, y * offsetZ);
-                    groundObject.transform.localPosition = newPos;
-                    GroundHandler groundHandler = groundObject.GetComponent<GroundHandler>();
-                    groundHandler.PlayEnter(0.5f, Utils.RandomRange(0f, 0.5f));
+                Vector3 newPos = g.transform.localPosition;
 
-                    PlayController.main.GetGridController().AddGridPosition(newPos);
-                }
+                float _x = newPos.x;
+                float _y = newPos.z;
+                float xCoord = _x / 10f * 1.5f;
+                float yCoord = _y / 10f * 1.5f;
+                float height = Mathf.PerlinNoise(xCoord, yCoord);
+
+                //float height = 2f * Mathf.PerlinNoise(Utils.RandomRange(0, 1f), 0f);
+                Debug.Log("height " + height);
+
+                newPos.y = height;// Utils.RandomRange(newPos.y, newPos.y + 0.5f);
+                GroundHandler groundHandler = g.GetComponent<GroundHandler>();
+
+                Debug.Log((height * 5f));
+                groundHandler.PlayEnter(newPos.y, Mathf.FloorToInt(height * 10f));
+
+                PlayController.main.GetGridController().AddGridPosition(newPos);
             }
         }
 

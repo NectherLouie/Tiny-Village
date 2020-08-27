@@ -15,10 +15,12 @@ namespace OneRoom
         [Header("Prefabs")]
         public GameObject prefabPlayController;
         public GameObject prefabResultController;
-        public GameObject prefabGround;
         public GameObject prefabTree;
         public GameObject prefabStone;
         public GameObject prefabFood;
+
+        [Header("Terrains")]
+        public GameObject prefabTerrain;
 
         [Header("Houses")]
         public GameObject houseSmallClickerObject;
@@ -43,7 +45,6 @@ namespace OneRoom
         public GameObject resourceCostPanelObject;
         public GameObject unitActionPanelObject;
 
-        private Queue<GameObject> groundObjectPool = new Queue<GameObject>();
         private Queue<GameObject> treeObjectPool = new Queue<GameObject>();
         private Queue<GameObject> stoneObjectPool = new Queue<GameObject>();
         private Queue<GameObject> foodObjectPool = new Queue<GameObject>();
@@ -60,12 +61,6 @@ namespace OneRoom
             // Prefabs
             for (int i = 0; i < 100; ++i)
             {
-                // ground
-                GameObject goGround = Instantiate(prefabGround);
-                GroundHandler groundHandler = goGround.GetComponent<GroundHandler>();
-                groundHandler.Load(pParent);
-                groundObjectPool.Enqueue(goGround);
-
                 // tree
                 GameObject goTree = Instantiate(prefabTree);
                 TreeHandler treeHandler = goTree.GetComponent<TreeHandler>();
@@ -119,18 +114,6 @@ namespace OneRoom
             satisfactionClicker.Load(pc.gameData.tavernResourceCost);
 
             OnLoadComplete?.Invoke();
-        }
-
-        public GameObject FetchGroundObject()
-        {
-            GameObject g = groundObjectPool.Dequeue();
-
-            return g;
-        }
-
-        public void ReturnGroundObject(GameObject pGroundObject)
-        {
-            groundObjectPool.Enqueue(pGroundObject);
         }
 
         public GameObject FetchTreeObject()
