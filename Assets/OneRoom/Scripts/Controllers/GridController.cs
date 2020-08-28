@@ -40,9 +40,9 @@ namespace OneRoom
 
         public void SliceGridPosition(Vector3 pPosition)
         {
-            if (gameData.gridPositions.Contains(pPosition))
+            if (GridPositionContains(pPosition, gameData.gridPositions))
             {
-                int posIndex = gameData.gridPositions.IndexOf(pPosition);
+                int posIndex = IndexOfGridPosition(pPosition, gameData.gridPositions);
 
                 Vector3 pos = Utils.Slice<Vector3>(gameData.gridPositions, posIndex);
 
@@ -52,12 +52,46 @@ namespace OneRoom
 
         public void ReturnGridPosition(Vector3 pPosition)
         {
-            if (gameData.usedGridPositions.Contains(pPosition))
+            if (GridPositionContains(pPosition, gameData.usedGridPositions))
             {
-                int usedPosIndex = gameData.usedGridPositions.IndexOf(pPosition);
+                int usedPosIndex = IndexOfGridPosition(pPosition, gameData.usedGridPositions);
+
                 Vector3 usedPosition = Utils.Slice<Vector3>(gameData.usedGridPositions, usedPosIndex);
                 gameData.gridPositions.Add(usedPosition);
             }
+        }
+
+        private bool GridPositionContains(Vector3 pPos, List<Vector3> pGridPositions)
+        {
+            bool output = false;
+
+            foreach (Vector3 v in pGridPositions)
+            {
+                if (v.x == pPos.x && v.z == pPos.z)
+                {
+                    output = true;
+                    break;
+                }
+            }
+
+            return output;
+        }
+
+        private int IndexOfGridPosition(Vector3 pPos, List<Vector3> pGridPositions)
+        {
+            int output = -1;
+
+            for (int i = 0; i < pGridPositions.Count; ++i)
+            {
+                Vector3 v = pGridPositions[i];
+                if (v.x == pPos.x && v.z == pPos.z)
+                {
+                    output = i;
+                    break;
+                }
+            }
+
+            return output;
         }
 
         public void AddTreeObjectCount(int pValue)

@@ -16,6 +16,8 @@ namespace OneRoom
             PlayController.main.OnDayStartedEvent += OnDayStarted;
             PlayController.main.EnableClickers();
 
+            PlayBuildingsEnter();
+
             PlayGridEnter();
 
             GridController gridController = PlayController.main.GetGridController();
@@ -30,7 +32,7 @@ namespace OneRoom
                 GameObject goTree = gameObjectFactory.FetchTreeObject();
                 goTree.transform.localPosition = treePosition;
                 TreeHandler treeHandler = goTree.GetComponent<TreeHandler>();
-                treeHandler.PlayGrow(1.0f, Utils.RandomRange(0f, 0.5f));
+                treeHandler.PlayGrow(1.0f, Utils.RandomRange(1.0f, 1.5f));
 
                 gridController.AddTreeObjectCount(1);
             }
@@ -45,7 +47,7 @@ namespace OneRoom
                 GameObject goStone = gameObjectFactory.FetchStoneObject();
                 goStone.transform.localPosition = stonePosition;
                 StoneHandler stoneHandler = goStone.GetComponent<StoneHandler>();
-                stoneHandler.PlayGrow(1.0f, Utils.RandomRange(0f, 0.5f));
+                stoneHandler.PlayGrow(1.0f, Utils.RandomRange(1.0f, 1.5f));
 
                 gridController.AddStoneObjectCount(1);
             }
@@ -60,7 +62,7 @@ namespace OneRoom
                 GameObject goFood = gameObjectFactory.FetchFoodObject();
                 goFood.transform.localPosition = foodPosition;
                 FoodHandler foodHandler = goFood.GetComponent<FoodHandler>();
-                foodHandler.PlayGrow(1.0f, Utils.RandomRange(0f, 0.5f));
+                foodHandler.PlayGrow(1.0f, Utils.RandomRange(1.0f, 1.5f));
 
                 gridController.AddFoodObjectCount(1);
             }
@@ -69,29 +71,36 @@ namespace OneRoom
             PlayController.main.WaitForMainMenuPlayClick(MainMenuPlayClicked);
         }
 
+        private void PlayBuildingsEnter()
+        {
+            BuildingsHandler buildingsHandler = gameObjectFactory.buildingsHandlerObject.GetComponent<BuildingsHandler>();
+            buildingsHandler.PlayEnter();
+        }
+
         private void PlayGridEnter()
         {
             GameObject terrain = Instantiate(gameObjectFactory.prefabTerrain);
             List<GameObject> grounds = terrain.GetComponent<TerrainHandler>().GetGrounds();
 
+            float _randomScale = Utils.RandomRange(1.25f, 1.75f);
+            float _randomHeight = Utils.RandomRange(7.0f, 10.0f);
             foreach (GameObject g in grounds)
             {
                 Vector3 newPos = g.transform.localPosition;
 
                 float _x = newPos.x;
-                float _y = newPos.z;
-                float xCoord = _x / 10f * 1.5f;
-                float yCoord = _y / 10f * 1.5f;
+                float _z = newPos.z;
+                float xCoord = _x / _randomHeight * _randomScale;
+                float yCoord = _z / _randomHeight * _randomScale;
                 float height = Mathf.PerlinNoise(xCoord, yCoord);
 
-                //float height = 2f * Mathf.PerlinNoise(Utils.RandomRange(0, 1f), 0f);
-                Debug.Log("height " + height);
-
-                newPos.y = height;// Utils.RandomRange(newPos.y, newPos.y + 0.5f);
+                newPos.y = height;
                 GroundHandler groundHandler = g.GetComponent<GroundHandler>();
-
-                Debug.Log((height * 5f));
-                groundHandler.PlayEnter(newPos.y, Mathf.FloorToInt(height * 10f));
+                float duration = 0.25f;
+                float _randomDelayX = Utils.RandomRange(0.02f, 0.04f);
+                float _randomDelayY = Utils.RandomRange(0.02f, 0.04f);
+                float delay = _x * _randomDelayX + _z * _randomDelayY;
+                groundHandler.PlayEnter(newPos.y, Mathf.FloorToInt(height * 10f), duration, delay);
 
                 PlayController.main.GetGridController().AddGridPosition(newPos);
             }

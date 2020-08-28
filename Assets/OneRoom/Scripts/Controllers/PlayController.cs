@@ -150,7 +150,7 @@ namespace OneRoom
         public void ShowMainMenu()
         {
             MainMenuPanel mainMenuPanel = mainMenuPanelObject.GetComponent<MainMenuPanel>();
-            mainMenuPanel.Show(0.25f, 1.0f);
+            mainMenuPanel.Show(0.25f, 1.75f);
         }
 
         public void WaitForMainMenuPlayClick(Action pOnMainMenuPlayClicked)

@@ -22,6 +22,9 @@ namespace OneRoom
         [Header("Terrains")]
         public GameObject prefabTerrain;
 
+        [Header("Preloads")]
+        public GameObject buildingsHandlerObject;
+
         [Header("Houses")]
         public GameObject houseSmallClickerObject;
         public GameObject houseMediumClickerObject;
@@ -82,6 +85,9 @@ namespace OneRoom
 
             // Preloads
             PlayController pc = PlayController.main;
+
+            BuildingsHandler buildingsHandler = buildingsHandlerObject.GetComponent<BuildingsHandler>();
+            buildingsHandler.Load();
 
             // houses
             BuildingClicker houseClicker = houseSmallClickerObject.GetComponent<BuildingClicker>();

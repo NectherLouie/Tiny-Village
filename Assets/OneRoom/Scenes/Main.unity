@@ -730,6 +730,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseSmallC
       objectReference: {fileID: 0}
+    - target: {fileID: 3795763109814984193, guid: 30a52b13d3d1dc841a942aa78137f716,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3795763109814984198, guid: 30a52b13d3d1dc841a942aa78137f716,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1734,7 +1739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &216900982
 Transform:
   m_ObjectHideFlags: 0
@@ -3765,7 +3770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 0, y: -350}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &479797222
@@ -3987,6 +3992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557947931}
+  - component: {fileID: 557947932}
   m_Layer: 0
   m_Name: Buildings
   m_TagString: Untagged
@@ -4026,6 +4032,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557947932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557947930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde6834bd5ace7e40934b199cded36fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563729805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,7 +4190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &567520416
 Transform:
   m_ObjectHideFlags: 0
@@ -5181,7 +5199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &663373215
 Transform:
   m_ObjectHideFlags: 0
@@ -5570,7 +5588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &736691250
 Transform:
   m_ObjectHideFlags: 0
@@ -6229,7 +6247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &913136772
 Transform:
   m_ObjectHideFlags: 0
@@ -8108,7 +8126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1165314363
 Transform:
   m_ObjectHideFlags: 0
@@ -8460,7 +8478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 800, y: 4}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1205097197
@@ -9103,7 +9121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1277403944
 Transform:
   m_ObjectHideFlags: 0
@@ -10078,7 +10096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1458794306
 Transform:
   m_ObjectHideFlags: 0
@@ -10618,7 +10636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -310}
+  m_AnchoredPosition: {x: 0, y: -410}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1583653205
@@ -11421,7 +11439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1718971776
 Transform:
   m_ObjectHideFlags: 0
@@ -13141,6 +13159,7 @@ MonoBehaviour:
     type: 3}
   prefabTerrain: {fileID: 3944067936557235544, guid: 0c7d651f9e8d84f4dbf035c11ddb1ccd,
     type: 3}
+  buildingsHandlerObject: {fileID: 557947930}
   houseSmallClickerObject: {fileID: 736691249}
   houseMediumClickerObject: {fileID: 1718971775}
   houseLargeClickerObject: {fileID: 913136771}
@@ -13842,6 +13861,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TavernC
       objectReference: {fileID: 0}
+    - target: {fileID: 315580294386186825, guid: ed42cbccb67249c49a4677c8d70eef04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 315580294386186830, guid: ed42cbccb67249c49a4677c8d70eef04,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13916,6 +13940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FarmC
+      objectReference: {fileID: 0}
+    - target: {fileID: 540195525411773250, guid: 8837b33833203194787d851feffa9c05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 540195525411773251, guid: 8837b33833203194787d851feffa9c05,
         type: 3}
@@ -14066,6 +14095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuarryC
       objectReference: {fileID: 0}
+    - target: {fileID: 2534216174102074789, guid: c704e6a7674ef144894a3e3f268226c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2534216174102074790, guid: c704e6a7674ef144894a3e3f268226c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14190,6 +14224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseLargeC
       objectReference: {fileID: 0}
+    - target: {fileID: 3083772504237286757, guid: ae5e736ca37cc804a9a5785ddc8685c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5e736ca37cc804a9a5785ddc8685c1, type: 3}
 --- !u!1001 &3446994453966928148
@@ -14203,6 +14242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CemeteryC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446994452708999217, guid: 352771b11fcd0034287c10d5ad462b77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3446994452708999218, guid: 352771b11fcd0034287c10d5ad462b77,
         type: 3}
@@ -14334,6 +14378,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForesterC
       objectReference: {fileID: 0}
+    - target: {fileID: 4560314078006112381, guid: 0621575aad6e0a7478f2924736370668,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0621575aad6e0a7478f2924736370668, type: 3}
 --- !u!1001 &4635832519477117747
@@ -14403,6 +14452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseMediumC
       objectReference: {fileID: 0}
+    - target: {fileID: 4635832518217156534, guid: 5dbb4734f7ccd0745aab08149ca9d3ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dbb4734f7ccd0745aab08149ca9d3ee, type: 3}
 --- !u!1001 &7097984881141969199
@@ -14471,6 +14525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClinicC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097984882319578769, guid: ab074ebe82a9b3d4dbf29bcd5daf88d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab074ebe82a9b3d4dbf29bcd5daf88d6, type: 3}

@@ -24,31 +24,32 @@ namespace OneRoom
             
         }
 
-        public void PlayEnter(float pPosY, int pIndex)
+        public void PlayEnter(float pPosY, int pIndex, float pDuration, float pDelay)
         {
             groundQuad.SetActive(true);
             groundQuad.GetComponent<Renderer>().material = groundQuadMaterials[pIndex];
 
             Vector3 pos = transform.position;
-            pos.y = pPosY;
+            pos.y = -5f;
             transform.position = pos;
+
+            transform.DOMoveY(pPosY, pDuration)
+                .SetDelay(pDelay)
+                .SetEase(Ease.OutBack);
+
+            Vector3 scl = transform.localScale;
+            float targetScaleY = scl.y;
+            scl.y = 0;
+            transform.localScale = scl;
+
+            transform.DOScaleY(targetScaleY, pDuration + 0.25f)
+                .SetDelay(pDelay)
+                .SetEase(Ease.OutBack);
         }
 
         public void PlayExit(float duration, float delay)
         {
             groundQuad.SetActive(false);
-        }
-
-        private void OnMouseEnter()
-        {
-            Vector3 pos = groundQuad.transform.position;
-
-        }
-
-
-        private void OnMouseExit()
-        {
-
         }
 
         private void OnMouseDown()
