@@ -25,15 +25,19 @@ namespace OneRoom
         {
             foreach (GameObject g in buildings)
             {
-                g.SetActive(true);
+                //g.SetActive(true);
 
                 Vector3 scl = g.transform.localScale;
-                scl = Vector3.zero;
+                scl.y = 0f;
                 g.transform.localScale = scl;
 
-                g.transform.DOScale(Vector3.one, 0.25f)
-                    .SetDelay(Utils.RandomRange(0f, 0.25f))
-                    .SetEase(Ease.OutBack);
+                g.transform.DOScale(Vector3.one, 1.0f)
+                    .SetDelay(1.5f + Utils.RandomRange(0f, 0.5f))
+                    .SetEase(Ease.OutElastic)
+                    .OnStart(() =>
+                    {
+                        g.SetActive(true);
+                    });
             }
         }
     }
