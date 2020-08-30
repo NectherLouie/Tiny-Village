@@ -86,6 +86,8 @@ namespace OneRoom
             // Preloads
             PlayController pc = PlayController.main;
 
+            
+
             BuildingsHandler buildingsHandler = buildingsHandlerObject.GetComponent<BuildingsHandler>();
             buildingsHandler.Load();
 

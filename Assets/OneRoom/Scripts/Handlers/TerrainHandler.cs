@@ -9,7 +9,7 @@ namespace OneRoom
     {
         public List<GameObject> grounds = new List<GameObject>();
 
-        public List<GameObject> GetGrounds()
+        public List<GameObject> Load()
         {
             grounds.Clear();
 
@@ -25,6 +25,11 @@ namespace OneRoom
                 }
             }
 
+            return grounds;
+        }
+
+        public List<GameObject> GetGrounds()
+        {
             return grounds;
         }
     }

@@ -16,6 +16,9 @@ namespace OneRoom
 
         public GameData gameData;
 
+        [Header("Terrains")]
+        public GameObject terrainHandlerObject;
+
         [Header("Houses")]
         public GameObject houseSmallClickerObject;
         public GameObject houseMediumClickerObject;
@@ -51,6 +54,10 @@ namespace OneRoom
             main = this;
 
             GameObjectFactory gameObjectFactory = GameObjectFactory.main;
+
+            terrainHandlerObject = Instantiate(gameObjectFactory.prefabTerrain);
+            TerrainHandler terrainHandler = terrainHandlerObject.GetComponent<TerrainHandler>();
+            terrainHandler.Load();
 
             houseSmallClickerObject = gameObjectFactory.houseSmallClickerObject;
             houseMediumClickerObject = gameObjectFactory.houseMediumClickerObject;
@@ -193,6 +200,11 @@ namespace OneRoom
         public GridController GetGridController()
         {
             return gridController;
+        }
+
+        public TerrainHandler GetTerrainHandler()
+        {
+            return terrainHandlerObject.GetComponent<TerrainHandler>();
         }
 
         public bool CanGrowTree()

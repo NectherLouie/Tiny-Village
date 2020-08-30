@@ -15,6 +15,8 @@ namespace OneRoom
 
         public GameObject buildingObject;
 
+        private float localY = 0;
+
         public void Load(Transform pParent)
         {
             gameObject.SetActive(true);
@@ -71,7 +73,59 @@ namespace OneRoom
                 PlayController.main.UpdateResourceCosts(buildingObject);
 
                 PlayController.main.DestroyFollowObject();
+
+                List<GameObject> grounds = PlayController.main.GetTerrainHandler().GetGrounds();
+
+                // play anims
+                float duration = 0.05f;
+                float delay = 0.15f;
+                PlayBuildAnimation(duration, 0f);
+
+                foreach (GameObject g in grounds)
+                {
+                    float _x = transform.localPosition.x;
+                    float _z = transform.localPosition.z;
+                    float space = 2f;
+                    
+                    if (g.transform.localPosition.x == _x && g.transform.localPosition.z == _z + space)
+                    {
+                        GroundHandler gh = g.GetComponent<GroundHandler>();
+                        gh.PlayBuildAnimation(duration, delay);
+                    }
+
+                    if (g.transform.localPosition.x == _x && g.transform.localPosition.z == _z - space)
+                    {
+                        GroundHandler gh = g.GetComponent<GroundHandler>();
+                        gh.PlayBuildAnimation(duration, delay);
+                    }
+
+                    if (g.transform.localPosition.x == _x + space && g.transform.localPosition.z == _z)
+                    {
+                        GroundHandler gh = g.GetComponent<GroundHandler>();
+                        gh.PlayBuildAnimation(duration, delay);
+                    }
+
+                    if (g.transform.localPosition.x == _x - space && g.transform.localPosition.z == _z)
+                    {
+                        GroundHandler gh = g.GetComponent<GroundHandler>();
+                        gh.PlayBuildAnimation(duration, delay);
+                    }
+                }
             }
+        }
+
+        private void PlayBuildAnimation(float pDuration, float pDelay)
+        {
+            localY = transform.localPosition.y;
+            transform.DOLocalMoveY(localY - 0.15f, pDuration)
+                .SetDelay(pDelay)
+                .OnComplete(OnMoveComplete);
+        }
+
+        private void OnMoveComplete()
+        {
+            transform.DOLocalMoveY(localY, 0.5f)
+                .SetEase(Ease.OutElastic);
         }
     }
 }

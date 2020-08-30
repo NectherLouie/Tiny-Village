@@ -79,8 +79,7 @@ namespace OneRoom
 
         private void PlayGridEnter()
         {
-            GameObject terrain = Instantiate(gameObjectFactory.prefabTerrain);
-            List<GameObject> grounds = terrain.GetComponent<TerrainHandler>().GetGrounds();
+            List<GameObject> grounds = PlayController.main.GetTerrainHandler().GetGrounds();
 
             float _randomScale = Utils.RandomRange(1.25f, 1.75f);
             float _randomHeight = Utils.RandomRange(7.0f, 10.0f);
