@@ -119,6 +119,13 @@ namespace OneRoom
             localY = transform.localPosition.y;
             transform.DOLocalMoveY(localY - 0.15f, pDuration)
                 .SetDelay(pDelay)
+                .OnComplete(OnFirstMoveComplete);
+        }
+
+        private void OnFirstMoveComplete()
+        {
+            transform.DOLocalMoveY(localY + 0.15f, 0.1f)
+                //.SetEase(Ease.OutElastic)
                 .OnComplete(OnMoveComplete);
         }
 

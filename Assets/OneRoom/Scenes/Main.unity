@@ -9440,12 +9440,12 @@ GameObject:
   - component: {fileID: 1276904086}
   - component: {fileID: 1276904085}
   m_Layer: 5
-  m_Name: AchievementTitle
+  m_Name: QuestTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276904084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11971,7 +11971,7 @@ GameObject:
   - component: {fileID: 1742249298}
   - component: {fileID: 1742249297}
   m_Layer: 5
-  m_Name: AchievementText
+  m_Name: QuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12015,7 +12015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Achievements
+  m_text: Tasks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49af3378d6eef3e4c9ca3c1700b9fb64, type: 2}
   m_sharedMaterial: {fileID: -4146714278738398263, guid: 49af3378d6eef3e4c9ca3c1700b9fb64,
@@ -12085,7 +12085,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1742249297}
-    characterCount: 12
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
